@@ -4,7 +4,6 @@ import axios from 'axios'
 function App() {
   const[email,setEmail]=useState('')
   const[message,setMessage]=useState('')
-  console.log(`${import.meta.env.VITE_BACKEND_URL}`)
 
   const handleChange = (e) => {
     setEmail(e.target.value)
