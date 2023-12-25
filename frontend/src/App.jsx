@@ -4,6 +4,7 @@ import axios from 'axios'
 function App() {
   const[email,setEmail]=useState('')
   const[message,setMessage]=useState('')
+  console.log(`${import.meta.env.VITE_BACKEND_URL}`)
 
   const handleChange = (e) => {
     setEmail(e.target.value)
@@ -12,7 +13,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response=await axios.get(`${import.meta.BACKEND_URL}/secret?email=${email}`)
+    const response=await axios.get(`${import.meta.env.VITE_BACKEND_URL}/secret?email=${email}`)
     console.log(response)
     setMessage(response.data.encryptedEmail.iv+response.data.encryptedEmail.content)
   }
